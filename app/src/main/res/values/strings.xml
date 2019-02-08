@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Psychic Test</string>
+    <!--Paranoid Jim Carety, Complusive truth tell carey, clas, psycho Carey-->
+    <string name="Spinner">Spinner</string>
+    <string-array name="choices">
+        <item>\n</item>
+        <item>Jim Carey</item>
+        <item>Game of Thrones</item>
+        <item>Mortal Kombat</item>
+    </string-array>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="confirm">confirm</string>
 </resources>

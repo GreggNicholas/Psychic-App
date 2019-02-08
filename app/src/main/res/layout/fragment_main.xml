@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.MainFragment">
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/spinner_main"
+        android:layout_width="209dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorAccent"
+        android:clickable="true"
+        android:focusable="true"
+        android:hapticFeedbackEnabled="true"
+        android:spinnerMode="dropdown"
+        app:layout_constraintRight_toRightOf="@id/button_fragment"
+        app:layout_constraintTop_toTopOf="@id/button_fragment" />
+
+    <Button
+        android:id="@+id/button_fragment"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/confirm"
+        android:textSize="12sp" />
+
+
+</FrameLayout>
