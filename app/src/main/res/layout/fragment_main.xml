@@ -33,7 +33,9 @@
         android:focusableInTouchMode="true"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
+        android:layout_gravity="center"
         android:text="@string/confirm"
+        android:layout_marginTop="120dp"
         android:textSize="12sp" />
 
 

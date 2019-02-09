@@ -3,7 +3,7 @@
     <!--Paranoid Jim Carety, Complusive truth tell carey, clas, psycho Carey-->
     <string name="Spinner">Spinner</string>
     <string-array name="choices">
-        <item>\n</item>
+        <item>Select a theme</item>
         <item>Jim Carey</item>
         <item>Game of Thrones</item>
         <item>Mortal Kombat</item>

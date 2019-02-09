@@ -2,49 +2,50 @@ package com.Psychic_App_HW_NICHOLAS_GREGG.Model;
 
 public class Choice {
     private String userName;
-    private int correctChoice;
-    private int Choice;
-    private int totalChoicesMade;
+    private double correctChoices;
+    private double wrongChoices;
+    private int totalChoices;
 
 
-    public Choice(String userName, int correctChoice, int wrongChoice, int totalChoicesMade) {
+    public Choice(String userName, double correctChoices, double wrongChoices, int totalChoices) {
         this.userName = userName;
-        this.correctChoice = correctChoice;
-        this.Choice = wrongChoice;
-        this.totalChoicesMade = totalChoicesMade;
+        this.correctChoices = correctChoices;
+        this.wrongChoices = wrongChoices;
+        this.totalChoices = totalChoices;
     }
 
     public String getUserName() {
         return userName;
     }
 
+    public double getCorrectChoices() {
+        return totalChoices - wrongChoices;
+    }
+
+    public double getWrongChoices() {
+        return totalChoices - correctChoices;
+    }
+
+    public double getTotalChoices() {
+        return wrongChoices + correctChoices;
+    }
+
+
     public void setUserName(String userName) {
         this.userName = userName;
     }
 
-    public int getCorrectChoice() {
-        return correctChoice;
+    public void setCorrectChoices(double correctChoices) {
+        this.correctChoices = correctChoices;
     }
 
-    public void setCorrectChoice(int correctChoice) {
-        this.correctChoice = correctChoice;
+    public void setWrongChoices(double wrongChoices) {
+        this.wrongChoices = wrongChoices;
     }
 
-    public int getChoice() {
-        return Choice;
+    public void setTotalChoices(int totalChoices) {
+        this.totalChoices = totalChoices;
     }
-
-    public void setChoice(int choice) {
-        this.Choice = choice;
-    }
-
-    public int getTotalChoicesMade() {
-        return totalChoicesMade;
-    }
-
-    public void setTotalChoicesMade(int totalChoicesMade) {
-        this.totalChoicesMade = totalChoicesMade;
-    }
-
-
 }
+
+
