@@ -4,11 +4,15 @@
     <string name="Spinner">Spinner</string>
     <string-array name="choices">
         <item>Select a theme</item>
-        <item>Jim Carey</item>
+        <item>Westworld</item>
         <item>Game of Thrones</item>
         <item>Mortal Kombat</item>
     </string-array>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="confirm">confirm</string>
+    <string name="image1">TODO</string>
+    <string name="image2">TODO</string>
+    <string name="imageview3">TODO</string>
+    <string name="image4">TODO</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.Psychic_App_HW_NICHOLAS_GREGG.Fragment;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+
 import com.Psychic_App_HW_NICHOLAS_GREGG.FragmentInterface;
 import com.Psychic_App_HW_NICHOLAS_GREGG.R;
 
@@ -19,29 +21,37 @@ import com.Psychic_App_HW_NICHOLAS_GREGG.R;
  * A simple {@link Fragment} subclass.
  */
 public class MainFragment extends Fragment implements AdapterView.OnItemSelectedListener, FragmentInterface {
-    private ChoiceFragment choiceFragment;
     private Spinner dropDown;
+    private FragmentInterface fragmentInterface;
 
 
-//    public static MainFragment newInstance() {
-//        // Required empty public constructor
-//        return
-//    }
-
+    public static MainFragment newInstance() {
+        MainFragment fragment = new MainFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof FragmentInterface) {
+            fragmentInterface = (FragmentInterface) context;
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_main, container, false);
 
         dropDown = v.findViewById(R.id.spinner_main);
-        Button button = v.findViewById(R.id.button_fragment);
+        final Button button = v.findViewById(R.id.button_fragment);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String confirmChoice = dropDown.getSelectedItem().toString();
-choiceFragLauncher(confirmChoice);
-
+                String dropDownChoice = dropDown.getSelectedItem().toString();
+                fragmentInterface.choiceFragLauncher(dropDownChoice);
 
             }
         });
@@ -77,18 +87,28 @@ choiceFragLauncher(confirmChoice);
 
     }
 
+
     @Override
-    public void choiceFragLauncher(String choice) {
-        ChoiceFragment choiceFragment = new ChoiceFragment();
-        getFragmentManager()
+    public void choiceFragLauncher(String choiceFragment) {
+        ChoiceFragment fragment = new ChoiceFragment();
+        getActivity()
+                .getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.container_main, choiceFragment)
-                .addToBackStack("choiceFragment")
+                .replace(R.id.container_main, fragment)
+                .addToBackStack("mainfragment")
                 .commit();
     }
 
     @Override
-    public void resultFragLauncher() {
-
+    public void resultFragLauncher(String result) {
+        ResultFragment resultFragment = new ResultFragment();
+        getActivity()
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container_main, resultFragment)
+                .addToBackStack("choiceFragment")
+                .commit();
     }
+
+
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/colorOceanic"
     tools:context=".Fragment.MainFragment">
 
     <android.support.v7.widget.AppCompatSpinner
@@ -13,21 +13,21 @@
         android:layout_height="55dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
+        android:background="@color/colorPrimaryDark"
         android:backgroundTint="@color/colorAccent"
         android:clickable="true"
         android:focusable="true"
         android:hapticFeedbackEnabled="true"
-        android:outlineSpotShadowColor="@color/colorPrimary"
-        android:padding="5dp"
-        android:pointerIcon="crosshair"
+        android:outlineAmbientShadowColor="@color/colorPrimaryDark"
+        android:spinnerMode="dropdown"
         app:layout_constraintRight_toRightOf="@id/button_fragment"
-        app:layout_constraintTop_toTopOf="@id/button_fragment"
-        tools:targetApi="p" />
+        app:layout_constraintTop_toTopOf="@id/button_fragment" />
 
     <Button
         android:id="@+id/button_fragment"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="120dp"
