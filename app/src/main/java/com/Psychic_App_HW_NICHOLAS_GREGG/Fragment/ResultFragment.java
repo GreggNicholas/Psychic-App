@@ -25,7 +25,7 @@ public class ResultFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if(context instanceof FragmentInterface) {
+        if (context instanceof FragmentInterface) {
             fragmentInterface = (FragmentInterface) context;
         }
 
@@ -34,10 +34,9 @@ public class ResultFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-     v = inflater.inflate(R.layout.fragment_result, container, false);
-     return  v;
+        v = inflater.inflate(R.layout.fragment_result, container, false);
+        return v;
     }
-
 
 
     @Override

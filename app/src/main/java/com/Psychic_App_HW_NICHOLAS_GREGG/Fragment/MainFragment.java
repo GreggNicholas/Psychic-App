@@ -78,10 +78,7 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
                         break;
                 }
             }
-
         });
-
-
     }
 
     private void dropDownMenu() {
