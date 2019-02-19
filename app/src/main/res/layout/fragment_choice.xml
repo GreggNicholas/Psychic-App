@@ -16,6 +16,7 @@
         android:clickable="true"
         android:contentDescription="@string/image1"
         android:focusable="true"
+        android:padding="5dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,6 +28,7 @@
         android:clickable="true"
         android:contentDescription="@string/image2"
         android:focusable="true"
+        android:padding="5dp"
         app:layout_constraintLeft_toRightOf="@id/imageview1_choicefragment"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,6 +40,7 @@
         android:clickable="true"
         android:contentDescription="@string/imageview3"
         android:focusable="true"
+        android:padding="5dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageview1_choicefragment" />
 
@@ -49,6 +52,7 @@
         android:clickable="true"
         android:contentDescription="@string/image4"
         android:focusable="true"
+        android:padding="5dp"
         app:layout_constraintLeft_toRightOf="@id/imageview3_choicefragment"
         app:layout_constraintTop_toBottomOf="@id/imageview2_choicefragment" />
 

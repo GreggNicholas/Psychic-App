@@ -1,6 +1,8 @@
 package com.Psychic_App_HW_NICHOLAS_GREGG;
 
+import java.util.List;
+
 public interface FragmentInterface {
-    void choiceFragLauncher(String choiceFragment);
-    void resultFragLauncher(String resultFragment);
+    void choiceFragLauncher(List<Integer> drawables);
+    void resultFragLauncher();
 }

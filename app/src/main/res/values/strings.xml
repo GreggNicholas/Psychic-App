@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Psychic Test</string>
-    <!--Paranoid Jim Carety, Complusive truth tell carey, clas, psycho Carey-->
     <string name="Spinner">Spinner</string>
     <string-array name="choices">
         <item>Select a theme</item>
