@@ -15,11 +15,10 @@ public class ChoicedatabaseHelper extends SQLiteOpenHelper {
     private static final String WRONGCHOICE = "wrongchoice";
     private static final String TOTAL = "total";
 
-    private static final String DATABASE = "ChoicedatabaseHelper";
-    private static final String TABLE_Name = "Choices";
+    private static final String DATABASE = "ChoicedatabaseHelper.db";
+    private static final String TABLE_NAME = "choice";
     private static final int SCHEMA = 1;
     private static ChoicedatabaseHelper choicedatabase;
-
     private List<Integer> choicesList;
 
     public ChoicedatabaseHelper(Context context) {
@@ -37,9 +36,9 @@ public class ChoicedatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(
-                "CREATE TABLE " + TABLE_Name
+                "CREATE TABLE " + TABLE_NAME
                         + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                        + "user_name TEXT, choices INTEGER, correct_choices INTEGER);");
+                        + "choice INTEGER);");
     }
 
     @Override
@@ -51,22 +50,21 @@ public class ChoicedatabaseHelper extends SQLiteOpenHelper {
     public void addChoice(int choice) {
         getWritableDatabase()
                 .execSQL(
-                        "INSERT INTO " + TABLE_Name +
-                                "(choices) VALUES('" +
+                        "INSERT INTO " + TABLE_NAME +
+                                "(choice) VALUES('" +
                                 choice + "');");
     }
 
     public List<Integer> getChoicesList() {
         List<Integer> guessList = new ArrayList<>();
         Cursor cursor = getReadableDatabase().rawQuery(
-                "SELECT * FROM " + TABLE_Name +
+                "SELECT * FROM " + TABLE_NAME +
                         ";", null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
                     int chooseImage =
-                            cursor.getInt(cursor.getColumnIndex("choices"));
-
+                            cursor.getInt(cursor.getColumnIndex("choice"));
                     guessList.add(chooseImage);
                 } while (cursor.moveToNext());
             }
@@ -78,7 +76,7 @@ public class ChoicedatabaseHelper extends SQLiteOpenHelper {
     public Choice correctChoice() {
         getChoicesList();
         Cursor cursor = getReadableDatabase().rawQuery(
-                "SELECT ALL * FROM " + TABLE_Name + " Where choice = 1;", null);
+                "SELECT ALL * FROM " + TABLE_NAME + " WHERE choice = 1;", null);
 
         Choice choice = new Choice(cursor.getCount(), choicesList.size() - cursor.getCount(), choicesList.size());
         cursor.close();
