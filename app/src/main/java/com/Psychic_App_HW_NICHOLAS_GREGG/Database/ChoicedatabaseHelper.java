@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChoicedatabaseHelper extends SQLiteOpenHelper {
-    private static final String USERNAME = "username";
     private static final String CORRECTCHOICE = "correctchoice";
     private static final String WRONGCHOICE = "wrongchoice";
     private static final String TOTAL = "total";
@@ -21,7 +20,7 @@ public class ChoicedatabaseHelper extends SQLiteOpenHelper {
     private static final int SCHEMA = 1;
     private static ChoicedatabaseHelper choicedatabase;
 
-    private List<Choice> choicesList;
+    private List<Integer> choicesList;
 
     public ChoicedatabaseHelper(Context context) {
         super(context, DATABASE, null, SCHEMA);
@@ -48,29 +47,43 @@ public class ChoicedatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-//    public List<Choice> getChoicesList(){
-//        choicesList = new ArrayList<>();
-//        Cursor cursor = getReadableDatabase().rawQuery(
-//                "SELECT * FROM " + TABLE_Name +
-//                        ";" , null);
-//        if(cursor != null){
-//            if(cursor.moveToFirst()) {
-//                do {
-//                    Choice choice = new Choice(
-//                            cursor.getString(cursor.getColumnIndex())
-//                    )
-//                }
-//            }
-//        }
-   // }
 
-
-    public void addChoiceEntry(Choice choice) {
+    public void addChoice(int choice) {
         getWritableDatabase()
                 .execSQL(
                         "INSERT INTO " + TABLE_Name +
                                 "(choices) VALUES('" +
                                 choice + "');");
+    }
+
+    public List<Integer> getChoicesList() {
+        List<Integer> guessList = new ArrayList<>();
+        Cursor cursor = getReadableDatabase().rawQuery(
+                "SELECT * FROM " + TABLE_Name +
+                        ";", null);
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    int chooseImage =
+                            cursor.getInt(cursor.getColumnIndex("choices"));
+
+                    guessList.add(chooseImage);
+                } while (cursor.moveToNext());
+            }
+        }
+        choicesList = guessList;
+        return choicesList;
+    }
+
+    public Choice correctChoice() {
+        getChoicesList();
+        Cursor cursor = getReadableDatabase().rawQuery(
+                "SELECT ALL * FROM " + TABLE_Name + " Where choice = 1;", null);
+
+        Choice choice = new Choice(cursor.getCount(), choicesList.size() - cursor.getCount(), choicesList.size());
+        cursor.close();
+        return choice;
+
     }
 
 

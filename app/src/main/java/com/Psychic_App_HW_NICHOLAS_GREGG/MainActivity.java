@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import com.Psychic_App_HW_NICHOLAS_GREGG.Fragment.ChoiceFragment;
 import com.Psychic_App_HW_NICHOLAS_GREGG.Fragment.MainFragment;
 import com.Psychic_App_HW_NICHOLAS_GREGG.Fragment.ResultFragment;
+import com.Psychic_App_HW_NICHOLAS_GREGG.Listener.FragmentInterface;
 
 import java.util.List;
 
-import static com.Psychic_App_HW_NICHOLAS_GREGG.Fragment.ChoiceFragment.newInstance;
 import static com.Psychic_App_HW_NICHOLAS_GREGG.R.id.container_main;
 
 public class MainActivity extends AppCompatActivity implements FragmentInterface {

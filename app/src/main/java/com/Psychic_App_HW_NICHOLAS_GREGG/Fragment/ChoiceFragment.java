@@ -11,11 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.Psychic_App_HW_NICHOLAS_GREGG.FragmentInterface;
+import com.Psychic_App_HW_NICHOLAS_GREGG.Listener.FragmentInterface;
 import com.Psychic_App_HW_NICHOLAS_GREGG.R;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 

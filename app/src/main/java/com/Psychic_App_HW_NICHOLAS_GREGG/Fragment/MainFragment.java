@@ -16,7 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
-import com.Psychic_App_HW_NICHOLAS_GREGG.FragmentInterface;
+import com.Psychic_App_HW_NICHOLAS_GREGG.Listener.FragmentInterface;
 import com.Psychic_App_HW_NICHOLAS_GREGG.R;
 
 import java.util.Arrays;
@@ -49,12 +49,9 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_main, container, false);
+        v = inflater.inflate(R.layout.fragment_main, container, false);
         button = v.findViewById(R.id.button_fragment);
         dropDown = v.findViewById(R.id.spinner_main);
-
-
-        dropDownMenu();
         return v;
     }
 
@@ -62,7 +59,7 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        dropDownMenu();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,10 +81,11 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
 
         });
 
+
     }
 
     private void dropDownMenu() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.choices, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(v.getContext(), R.array.choices, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dropDown.setAdapter(adapter);
         dropDown.setOnItemSelectedListener(this);
